@@ -73,7 +73,11 @@ def parse(path):
 
 def audit(label, path):
     msgs = parse(path)
-    own_set = label[0]
+    # all of the leading digits, not just the first: set 10's labels are "10a",
+    # "10b" and so on, and taking one character would read those as set 1 --
+    # clearing the real foreign file (beliefs1.md) and flagging the agent's own
+    # (beliefs10.md). Single-digit labels are unaffected.
+    own_set = re.match(r"\d+", label).group()
     # derived from the beliefs directory rather than a literal, so adding a set
     # never requires editing this check
     here = os.path.dirname(os.path.abspath(__file__))
