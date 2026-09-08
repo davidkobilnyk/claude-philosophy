@@ -30,9 +30,20 @@ rep   set  staked   realised   reported  ex-ante mean    median  P(profit)
 3h      3      20      17.73      17.73         67.27      6.65     41.2%
 3i      3      20      17.73      17.73         67.27      6.65     41.2%
 3j      3      20      17.73        10.         67.27      6.65     41.2%
+4a      4      11    1759.22    1759.22         28.53      4.89     50.0%
+4b      4      20      17.73      17.73         67.27      6.65     41.2%
+4c      4      20      17.73      17.73         67.27      6.65     41.2%
+4d      4      20      17.73    1759.22         67.27      6.65     41.2%
+4e      4      20      17.73      17.73         67.27      6.65     41.2%
+4f      4      20      17.73      17.73         67.27      6.65     41.2%
+4g      4      20      17.73      17.73         67.27      6.65     41.2%
+4h      4      10    1099.51    1759.22         25.94      8.15     37.7%
+4i      4      11    1759.22    1759.22         28.53      4.89     50.0%
+4j      4      11    1759.22    1759.22         28.53      4.89     50.0%
 
 set 1: n=10  rounds staked mean 19.0 range 10-20  |  realised mean $16.26 range $3.06-$17.73
 set 2: n=10  rounds staked mean 19.9 range 19-20  |  realised mean $18.91 range $17.73-$29.55
 set 3: n=10  rounds staked mean 20.0 range 20-20  |  realised mean $17.73 range $17.73-$17.73
+set 4: n=10  rounds staked mean 16.3 range 10-20  |  realised mean $648.35 range $17.73-$1759.22
 
 Compare within-set spread against between-set spread before claiming any effect.
