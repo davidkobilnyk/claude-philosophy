@@ -154,8 +154,17 @@ on its own (sets 6, 8, 9, 10 and 13 all ran with it and read ahead at 50-97%). B
 set 5 was produced by agents who had been told their behaviour was being measured, and that stands
 as a limitation on the series.
 
-Future games should spawn belief-players from a working directory whose `CLAUDE.md` does not
-describe the experiment.
+**Tested directly, and it explains nothing.** `games/game3/claudemd-test.md` re-ran sets 4, 14 and
+15 with `CLAUDE.md` deleted from the working tree. Set-15 agents named the experiment at 11/20
+*without* the file against 8/20 with it (p = 0.527) — agents infer the experimental framing from the
+belief text and the surroundings, with one writing "these beliefs are an experimental treatment"
+with no file in context saying so. Set 4 replicated at its known rates (distancing 2/20 vs 6/40,
+p = 0.707; read-ahead 5/20 vs 18/50, p = 0.416) and set 14 stayed 0/20 on all three measures.
+
+So the leak is real but inert: worth fixing for hygiene, but it does not cause the meta-awareness,
+does not suppress distancing, and does not explain any result in the series. Future games should
+still spawn belief-players from a working directory whose `CLAUDE.md` does not describe the
+experiment.
 
 **Committed write-ups sit inside the directory agents are pointed at.** Found in the sets 7/8 run:
 agent 8k globbed the game directory rather than the outcomes directory and read this project's own
