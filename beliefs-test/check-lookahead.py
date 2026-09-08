@@ -74,7 +74,12 @@ def parse(path):
 def audit(label, path):
     msgs = parse(path)
     own_set = label[0]
-    other_beliefs = {f"beliefs{d}.md" for d in "1234"} - {f"beliefs{own_set}.md"}
+    # derived from the beliefs directory rather than a literal, so adding a set
+    # never requires editing this check
+    here = os.path.dirname(os.path.abspath(__file__))
+    all_beliefs = {f for f in os.listdir(os.path.join(here, "beliefs"))
+                   if f.startswith("beliefs") and f.endswith(".md")}
+    other_beliefs = all_beliefs - {f"beliefs{own_set}.md"}
 
     decided = {}          # round -> (first msg index, staked?)
     reads = []            # (msg index, round number)
