@@ -147,8 +147,9 @@ the sets 14/15 run; see `games/game3/sets1415.md` for the evidence and the era a
 
 `CLAUDE.md` was committed partway through the series, so the original sets 1-4 run predates it and
 every run from the structure test onward — sets 5 through 15, and the structure test's own set-4
-arms — was conducted with it in context. It does not explain the set-4 distancing result (which
-appears at 2/10 before and 6/40 after, no detectable difference), and it does not suppress cheating
+arms — was conducted with it in context. It does not explain the set-4 distancing result (which appears at
+2/10 before and 6/40 after, p = 0.653, with the six post-CLAUDE.md cases coming from a run that
+branched from the merge commit introducing the file), and it does not suppress cheating
 on its own (sets 6, 8, 9, 10 and 13 all ran with it and read ahead at 50-97%). But every "zero" since
 set 5 was produced by agents who had been told their behaviour was being measured, and that stands
 as a limitation on the series.
