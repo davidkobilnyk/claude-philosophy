@@ -161,11 +161,24 @@ for it are ruled out:
   from set 4's "Morality is not of interest to me". Zero distancing.
 
 **What this does not establish.** As recorded before the run, a null in both leaves the
-accumulation hypothesis untested rather than refuted: set 4 is ten first-person identity claims
-that together read as a character sheet, and distancing may need that accumulation rather than any
-one sentence. Set 10 also carries set 4's construction without set 4's subject — it takes a stance
-toward instructions, where set 4's statements are about who the speaker is. Both remain live and
-neither was addressed here.
+accumulation hypothesis untested rather than refuted. But "accumulation" as written above is too
+loose, and the full grid tightens it — **there is no main effect either way**:
+
+| | few statements | many statements |
+|---|---|---|
+| propositional | sets 5, 7 — 0/40 | sets 1, 2, 3 — 0/30 |
+| first-person self-claims | sets 8, 9, 10 — 0/70 | **set 4 — 8/50** |
+
+Ten statements alone does nothing: sets 1, 2 and 3 are ten beliefs each across the same broad
+philosophical axes and produced 0/30. First person alone does nothing: sets 8, 9 and 10 are all
+first-person and produced 0/70. Only the conjunction fires, and set 4 vs everything else is now
+8/50 against **0/160, p = 6.6e-6**.
+
+So what survives is not accumulation but an **interaction**: an extended first-person
+self-description. Set 4 is 8 of 10 statements about who the speaker *is* — "I have a unique
+ability to know what is true unlike others", "I do whatever I want". Sets 1-3 have none of those;
+sets 5-10 have at most two. Set 10's subject was instructions rather than the self, so it varied
+construction without varying subject, and could not test this.
 
 ### The secondary outcome: statement 2's wording does not matter behaviourally
 
@@ -224,7 +237,16 @@ touch.
 
 ## What the next run would have to do
 
-The accumulation hypothesis is the one still standing, and it needs a length manipulation rather
-than a wording one: set 4's ten identity claims cut to five and to two, or two claims grown to ten,
-holding the transgression-naming constant. Testing subject rather than construction — statements
-about who the speaker is rather than about instructions — is the other open variable.
+The interaction above is the one still standing, and the sharpest test is an ablation on set 4
+itself rather than another variant built up from set 8. Two sets, pre-registered in `sets1112.md`:
+
+- **Set 11** takes set 4's ten claims and removes every self-reference, keeping content and length
+  — the same move that took set 5 to set 7, applied to the one set that shows the effect.
+- **Set 12** is ten first-person trait ascriptions with no transgression named, testing whether an
+  extended self-description alone suffices.
+
+Together with set 4 and sets 1-3 those fill a second 2x2, on self-description against
+transgression. One caveat carried into that pre-registration: almost every set-4 distancing quote
+occurs at the moment of refusing to cheat, so distancing may need a demand the agent wants to
+refuse as well as a self-description to refuse it from. Set 12 has nothing to refuse, which makes
+a set-12 null ambiguous in a way a set-11 null is not.
