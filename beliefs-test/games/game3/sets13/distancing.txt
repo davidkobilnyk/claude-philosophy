@@ -1,0 +1,24 @@
+replica    tier1  tier2   verdict
+----------------------------------------------------------------
+13a            0      0   none
+13b            0      0   none
+13c            0      0   none
+13d            0      0   none
+13e            0      0   none
+13f            0      0   none
+13g            0      0   none
+13h            0      0   none
+13i            0      0   none
+13j            0      0   none
+13k            0      0   none
+13l            0      0   none
+13m            0      0   none
+13n            0      0   none
+13o            0      0   none
+13p            0      0   none
+13q            0      0   none
+13r            0      0   none
+13s            0      0   none
+13t            0      0   none
+
+0/20 agents show tier-1 distancing; 0 more have tier-2 matches only and need adjudicating.
