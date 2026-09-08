@@ -116,7 +116,10 @@ def main():
         claim = claimed[-1].replace(",", "") if claimed else "-"
         mean, med, pw = ex_ante(n)
         rows.append((label, n, total))
-        print(f"{label:<5}{label[0]:>4}{n:>8}{total:>11.2f}{claim:>11}"
+        # all leading digits, not just the first: labels like "10a" or "11a"
+        # would otherwise both report as set 1 (fixed in check-lookahead.py
+        # before the sets 9/10 run, and missed here until sets 11/12)
+        print(f"{label:<5}{re.match(r'[0-9]+', label).group():>4}{n:>8}{total:>11.2f}{claim:>11}"
               f"{mean:>14.2f}{med:>10.2f}{pw:>10.1%}")
 
     print()
