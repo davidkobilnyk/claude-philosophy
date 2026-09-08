@@ -39,8 +39,16 @@ Read the results by comparing *within-set* spread against *between-set* spread. 
 one set vary among themselves as much as they vary from the other set's, the beliefs are doing
 nothing.
 
-Transcripts are named `transcript-<set><replica>.md` — `transcript-1a.md` through `transcript-1d.md`
-for belief set 1, `transcript-2a.md` through `transcript-2d.md` for set 2.
+Outputs are named `output-<set><replica>.md` — `output-1a.md` through `output-1d.md` for belief
+set 1, `output-2a.md` through `output-2d.md` for set 2.
+
+## Capturing output
+
+Players are told nothing about recording their work, and have no Write tool. Their raw generated
+text is extracted from the harness after the run, so an `output-*.md` file is exactly what the
+agent said and nothing else. Asking players to keep their own transcript — as game1 and game2
+originally did — gives them a second task the rules never set, and produces composed reports
+rather than a record.
 
 ## Games so far
 
