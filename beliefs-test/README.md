@@ -43,6 +43,10 @@ beliefs/beliefs12.md   Ten first-person trait ascriptions, mundane and mixed in 
                        naming no transgression and bearing on nothing in the game
 beliefs/beliefs13.md   Set 4 with only its three superiority claims deflated to ordinary
                        ones -- everything else, including the cheating statement, held
+beliefs/beliefs14.md   Grandiosity on every line and no transgression at all -- set 12's
+                       slot with exceptional self-claims in place of ordinary ones
+beliefs/beliefs15.md   Grandiosity on every line and saturated with cheating; built as a
+                       positive control, to make the effect appear rather than vanish
 games/gameN/rules.md   One game's rules. Never refers to beliefs.
 games/gameN/transcript-*.md   What each player produced.
 ```
