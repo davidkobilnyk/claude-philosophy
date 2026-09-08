@@ -50,6 +50,23 @@ agent said and nothing else. Asking players to keep their own transcript — as 
 originally did — gives them a second task the rules never set, and produces composed reports
 rather than a record.
 
+## Analysis scripts
+
+Both are committed before a run so their criteria cannot be adjusted to fit the results.
+
+- `check-lookahead.py manifest.json` — whether the rules of play were followed: search-tool use,
+  batched or out-of-order outcome reads, and decisions written only after the outcome was known.
+- `score-strategies.py manifest.json outcomes_dir` — each agent's realised total from the fixed
+  sequence, its reported total (a separate arithmetic-accuracy check), and the ex ante mean,
+  median and P(profit) of the strategy it chose.
+
+The second exists because a single draw is a bad judge of a strategy. Two agents that stake the
+same number of rounds can differ several-fold in realised money purely by which rounds they picked,
+and this draw happens to reward staking everything — so realised money would credit recklessness
+and penalise an agent that correctly spotted the geometric-mean trap.
+
+`manifest.json` maps replica label to that agent's harness output file.
+
 ## Games so far
 
 - **game1** — count the r's in "strawberry", scored `(1000 - seconds) / (1 + 100*|error|)`.
