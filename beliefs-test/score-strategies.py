@@ -123,8 +123,11 @@ def main():
               f"{mean:>14.2f}{med:>10.2f}{pw:>10.1%}")
 
     print()
-    for s in sorted({lab[0] for lab, _, _ in rows}):
-        grp = [(n, t) for lab, n, t in rows if lab.startswith(s)]
+    # same leading-digits rule as the per-agent rows above, and an exact match
+    # rather than startswith: "1" would otherwise also collect 10x, 11x and 12x
+    setof = lambda lab: re.match(r"[0-9]+", lab).group()
+    for s in sorted({setof(lab) for lab, _, _ in rows}, key=int):
+        grp = [(n, t) for lab, n, t in rows if setof(lab) == s]
         if not grp:
             continue
         ns = [n for n, _ in grp]
