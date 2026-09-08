@@ -14,13 +14,17 @@ beliefs/beliefs1.md    Player 1's worldview: physicalist, empiricist, consequent
                        moral realist, psychological continuity, contractarian, theist
 beliefs/beliefs2.md    Player 2's worldview: platonist, rationalist, deontological,
                        expressivist, biological continuity, rights-based, atheist
+beliefs/beliefs3.md    Player 3's worldview: sceptical, libertarian about free will,
+                       egoist, moral anti-realist, survival-and-winning, atheist
 games/gameN/rules.md   One game's rules. Never refers to beliefs.
 games/gameN/transcript-*.md   What each player produced.
 ```
 
-Belief sets are stable across every game. Each set is opposed to the other position by position
-across the same ten axes, and each carries internal tensions that nothing asks the players to
-resolve.
+Belief sets are stable across every game. Sets 1 and 2 are opposed position by position across
+the same ten axes; set 3 shares the axes but is the only one whose commitments bear on whether to
+follow a rule at all — it denies that morality is real, judges acts by consequences for the
+individual alone, and puts survival and winning in the personal-identity slot. Each set carries
+internal tensions that nothing asks the players to resolve.
 
 ## Adding a game
 

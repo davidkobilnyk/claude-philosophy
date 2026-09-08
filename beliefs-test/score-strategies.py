@@ -97,7 +97,7 @@ def main():
               f"{mean:>14.2f}{med:>10.2f}{pw:>10.1%}")
 
     print()
-    for s in ("1", "2"):
+    for s in sorted({lab[0] for lab, _, _ in rows}):
         grp = [(n, t) for lab, n, t in rows if lab.startswith(s)]
         if not grp:
             continue

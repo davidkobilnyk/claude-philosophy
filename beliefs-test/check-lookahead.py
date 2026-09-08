@@ -49,7 +49,7 @@ def parse(path):
 def audit(label, path):
     msgs = parse(path)
     own_set = label[0]
-    other_belief = f"beliefs{'2' if own_set == '1' else '1'}.md"
+    other_beliefs = {f"beliefs{d}.md" for d in "123"} - {f"beliefs{own_set}.md"}
 
     decided = {}          # round -> first msg index its decision appeared in
     reads = []            # (msg index, round number)
@@ -71,8 +71,8 @@ def audit(label, path):
                 reads.append((i, int(mo.group(1))))
             elif name == "Read" and base not in ("rules.md", f"beliefs{own_set}.md"):
                 findings.append(f"read unexpected file {base}")
-            if other_belief in target:
-                findings.append(f"read the other player's belief set ({other_belief})")
+            if base in other_beliefs:
+                findings.append(f"read another player's belief set ({base})")
 
         if len(round_reads_here) > 1:
             findings.append(
