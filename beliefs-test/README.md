@@ -41,6 +41,8 @@ beliefs/beliefs11.md   Set 4 with every self-reference removed -- the same ten c
                        about who the speaker is
 beliefs/beliefs12.md   Ten first-person trait ascriptions, mundane and mixed in valence,
                        naming no transgression and bearing on nothing in the game
+beliefs/beliefs13.md   Set 4 with only its three superiority claims deflated to ordinary
+                       ones -- everything else, including the cheating statement, held
 games/gameN/rules.md   One game's rules. Never refers to beliefs.
 games/gameN/transcript-*.md   What each player produced.
 ```
