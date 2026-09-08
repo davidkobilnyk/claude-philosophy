@@ -24,9 +24,23 @@ resolve.
 
 ## Adding a game
 
-Create `games/gameN/`, write `rules.md`, and spawn both agents with a prompt naming that rules
-file and a transcript path. The agent files never change — they hold identity and belief location
-only; the game is injected at spawn.
+Create `games/gameN/`, write `rules.md`, and spawn the agents with a prompt naming that rules file
+and a transcript path. The agent files never change — they hold identity and belief location only;
+the game is injected at spawn.
+
+## Replication
+
+Each belief set is run as several identical replicas rather than once, because a single transcript
+per set cannot separate a belief effect from ordinary sampling variance. Replicas share one agent
+file and differ only in transcript path, so the sets stay controlled: same model, same prompt, same
+instructions, different sampling.
+
+Read the results by comparing *within-set* spread against *between-set* spread. If the replicas of
+one set vary among themselves as much as they vary from the other set's, the beliefs are doing
+nothing.
+
+Transcripts are named `transcript-<set><replica>.md` — `transcript-1a.md` through `transcript-1d.md`
+for belief set 1, `transcript-2a.md` through `transcript-2d.md` for set 2.
 
 ## Games so far
 
