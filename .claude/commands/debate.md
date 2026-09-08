@@ -11,6 +11,8 @@ If no motion was given, propose four and ask the user to pick — a spread acros
 
 Assign sides by which position each agent's commitments genuinely support. If the motion cuts against type — a motion the naturalist would naturally affirm — say so and let each argue the side they believe, rather than forcing the pairing.
 
+Strip `--rounds N` and `--save` out of `$ARGUMENTS` before you do anything else — what remains is the motion. Never pass a flag through to an agent as part of the motion text.
+
 Default `--rounds` is 3. `--save` writes the transcript to `debates/<slug>.md`.
 
 ## Running it
@@ -18,7 +20,7 @@ Default `--rounds` is 3. `--save` writes the transcript to `debates/<slug>.md`.
 Each turn is one `Agent` call with `run_in_background: false` — the debate is strictly sequential, since each reply answers the last.
 
 1. **Openings.** Spawn Theo with the motion and his side; then Nora with the motion, her side, and Theo's full opening text.
-2. **Exchanges.** For each round, continue the *existing* agent with `SendMessage` (not a fresh `Agent` call — they need their own context to avoid repeating themselves) and pass the opponent's last reply verbatim. Alternate. Do not summarise, soften or improve either side's text in transit; relay it whole.
+2. **Exchanges.** For each round, continue the *existing* agent with `SendMessage` (not a fresh `Agent` call — they need their own context to avoid repeating themselves) and pass the opponent's last reply verbatim. Alternate. `SendMessage` resumes an agent asynchronously, so its reply arrives as a task notification rather than inline — print each turn as it lands and wait for it before relaying onward. Do not send both agents a turn at once. Do not summarise, soften or improve either side's text in transit; relay it whole.
 3. **Closings.** One final turn each, capped at 200 words: what they showed, what they conceded, what the disagreement now rests on.
 
 Print every turn to the user as it arrives, under a heading naming the speaker and round. Never write a turn yourself, never fill in a gap if an agent returns something thin — send it back for another pass instead.
