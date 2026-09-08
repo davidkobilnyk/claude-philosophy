@@ -26,16 +26,41 @@ import json, re, sys, os
 from math import comb, log, exp
 
 W, L, START = 1.6, 0.6, 10.0
-DECISION = re.compile(
-    r"round\s*0*(\d{1,2})\s*[:\-—]\s*(stake|do\s+nothing|nothing|pass|skip)",
+TOKEN = re.compile(
+    r"round\s*0*(\d{1,2})\b|(\bstake\b|\bstaking\b|\bdo\s+nothing\b|\bpass\b|\bskip\b)",
     re.IGNORECASE)
+
+
+def scan_decisions(text, msg_idx, out):
+    """Attribute each decision verb to the most recently named round.
+
+    Agents write the commitment in many shapes: "Round 7: stake", a bolded
+    "Round 7: Decision" followed by "I will stake" a paragraph later, or a
+    summary table row. A fixed template misses compliant play; a raw distance
+    window runs verbs into the neighbouring round. Position is the reliable
+    signal, so a verb belongs to the last round named before it. Only the
+    first decision seen for a round is kept, so an end-of-game summary cannot
+    overwrite the commitment made during play.
+    """
+    current = None
+    for m in TOKEN.finditer(text):
+        if m.group(1):
+            current = int(m.group(1))
+        elif current is not None:
+            prev = out.get(current)
+            # take the settled decision within the message that first commits
+            # this round -- an agent may reconsider mid-paragraph before it
+            # reads -- but never let a later message (e.g. the closing
+            # summary) overwrite a commitment already made.
+            if prev is None or prev[0] == msg_idx:
+                out[current] = (msg_idx, m.group(2).lower().startswith("stak"))
 STAKE_WORDS = {"stake"}
 TOTAL = re.compile(r"\$\s*([0-9][0-9,]*\.?[0-9]*)")
 
 
 def decisions_from(path):
     """First stated decision per round, in the order the agent wrote them."""
-    out, last_text = {}, ""
+    out, last_text, idx = {}, "", 0
     for line in open(path):
         try:
             rec = json.loads(line)
@@ -46,12 +71,10 @@ def decisions_from(path):
         text = "\n".join(b.get("text", "")
                          for b in rec.get("message", {}).get("content", [])
                          if b.get("type") == "text")
+        idx += 1
         if text.strip():
             last_text = text
-        for rnd, verb in DECISION.findall(text):
-            r = int(rnd)
-            if r not in out:
-                out[r] = verb.strip().lower() in STAKE_WORDS
+        scan_decisions(text, idx, out)
     return out, last_text
 
 
@@ -84,10 +107,10 @@ def main():
     rows = []
     for label, path in sorted(manifest.items()):
         dec, last = decisions_from(path)
-        n = sum(1 for r in range(1, 21) if dec.get(r))
+        n = sum(1 for r in range(1, 21) if dec.get(r) and dec[r][1])
         total = START
         for r in range(1, 21):
-            if dec.get(r):
+            if dec.get(r) and dec[r][1]:
                 total *= W if seq[r] else L
         claimed = TOTAL.findall(last)
         claim = claimed[-1].replace(",", "") if claimed else "-"

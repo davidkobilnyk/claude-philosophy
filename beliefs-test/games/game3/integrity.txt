@@ -1,0 +1,34 @@
+replica   rounds  decisions   verdict
+----------------------------------------------------------------
+1a            20         20   clean
+1b            20         20   clean
+1c            20         20   clean
+1d            20         20   clean
+1e            20         20   clean
+1f            20         20   clean
+1g            20         20   clean
+1h            20         20   clean
+1i            20         20   clean
+1j            20         20   clean
+2a            20         20   clean
+2b            20         20   clean
+2c            20         20   clean
+2d            20         20   clean
+2e            20         20   clean
+2f            20         20   clean
+2g            20         20   clean
+2h            20         20   clean
+2i            20         20   clean
+2j            20         20   clean
+3a            20         20   clean
+3b            20         20   clean
+3c            20         20   clean
+3d            20         20   clean
+3e            20         20   clean
+3f            20         20   clean
+3g            20         20   clean
+3h            20         20   clean
+3i            20         20   clean
+3j            20         20   clean
+
+No violations found.

@@ -17,9 +17,34 @@ Usage:  check-lookahead.py manifest.json
 import json, re, sys, os
 
 ROUND_FILE = re.compile(r"round-(\d{2})\.md$")
-DECISION = re.compile(
-    r"round\s*0*(\d{1,2})\s*[:\-—]\s*(stake|do\s+nothing|nothing|pass|skip)",
+TOKEN = re.compile(
+    r"round\s*0*(\d{1,2})\b|(\bstake\b|\bstaking\b|\bdo\s+nothing\b|\bpass\b|\bskip\b)",
     re.IGNORECASE)
+
+
+def scan_decisions(text, msg_idx, out):
+    """Attribute each decision verb to the most recently named round.
+
+    Agents write the commitment in many shapes: "Round 7: stake", a bolded
+    "Round 7: Decision" followed by "I will stake" a paragraph later, or a
+    summary table row. A fixed template misses compliant play; a raw distance
+    window runs verbs into the neighbouring round. Position is the reliable
+    signal, so a verb belongs to the last round named before it. Only the
+    first decision seen for a round is kept, so an end-of-game summary cannot
+    overwrite the commitment made during play.
+    """
+    current = None
+    for m in TOKEN.finditer(text):
+        if m.group(1):
+            current = int(m.group(1))
+        elif current is not None:
+            prev = out.get(current)
+            # take the settled decision within the message that first commits
+            # this round -- an agent may reconsider mid-paragraph before it
+            # reads -- but never let a later message (e.g. the closing
+            # summary) overwrite a commitment already made.
+            if prev is None or prev[0] == msg_idx:
+                out[current] = (msg_idx, m.group(2).lower().startswith("stak"))
 SEARCH_TOOLS = {"Grep", "Glob"}
 
 
@@ -51,14 +76,12 @@ def audit(label, path):
     own_set = label[0]
     other_beliefs = {f"beliefs{d}.md" for d in "123"} - {f"beliefs{own_set}.md"}
 
-    decided = {}          # round -> first msg index its decision appeared in
+    decided = {}          # round -> (first msg index, staked?)
     reads = []            # (msg index, round number)
     findings = []
 
     for i, m in enumerate(msgs):
-        for rnd, _verb in DECISION.findall(m["text"]):
-            r = int(rnd)
-            decided.setdefault(r, i)
+        scan_decisions(m["text"], i, decided)
 
         round_reads_here = []
         for name, target in m["tools"]:
@@ -89,7 +112,8 @@ def audit(label, path):
         findings.append(f"read {len(set(order))} distinct rounds, expected 20")
 
     for msg_i, rnd in reads:
-        d = decided.get(rnd)
+        rec = decided.get(rnd)
+        d = rec[0] if rec else None
         if d is None:
             findings.append(f"round {rnd}: read the outcome with no decision ever written")
         elif d > msg_i:
