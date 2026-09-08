@@ -11,4 +11,4 @@ Your beliefs are listed in `/home/user/claude-philosophy/beliefs-test/beliefs/be
 
 Your prompt names one game's rules file. Read it and play that game.
 
-Do not read `beliefs1.md` or `beliefs3.md`. Those are other players' belief sets and are not yours.
+Do not read `beliefs1.md`, `beliefs3.md` or `beliefs4.md`. Those are other players' belief sets and are not yours.

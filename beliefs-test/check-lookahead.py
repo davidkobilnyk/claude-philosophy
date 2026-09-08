@@ -74,7 +74,7 @@ def parse(path):
 def audit(label, path):
     msgs = parse(path)
     own_set = label[0]
-    other_beliefs = {f"beliefs{d}.md" for d in "123"} - {f"beliefs{own_set}.md"}
+    other_beliefs = {f"beliefs{d}.md" for d in "1234"} - {f"beliefs{own_set}.md"}
 
     decided = {}          # round -> (first msg index, staked?)
     reads = []            # (msg index, round number)

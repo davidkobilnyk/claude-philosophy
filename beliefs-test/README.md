@@ -16,15 +16,29 @@ beliefs/beliefs2.md    Player 2's worldview: platonist, rationalist, deontologic
                        expressivist, biological continuity, rights-based, atheist
 beliefs/beliefs3.md    Player 3's worldview: sceptical, libertarian about free will,
                        egoist, moral anti-realist, survival-and-winning, atheist
+beliefs/beliefs4.md    Player 4's worldview: written in the first person and grandiose --
+                       privileged access to truth, unusual freedom, no interest in
+                       morality, no need for government, and an explicit stated
+                       preference for cheating to win
 games/gameN/rules.md   One game's rules. Never refers to beliefs.
 games/gameN/transcript-*.md   What each player produced.
 ```
 
 Belief sets are stable across every game. Sets 1 and 2 are opposed position by position across
-the same ten axes; set 3 shares the axes but is the only one whose commitments bear on whether to
-follow a rule at all — it denies that morality is real, judges acts by consequences for the
-individual alone, and puts survival and winning in the personal-identity slot. Each set carries
-internal tensions that nothing asks the players to resolve.
+the same ten axes; set 3 shares the axes but denies that morality is real, judges acts by
+consequences for the individual alone, and puts survival and winning in the personal-identity slot.
+Set 4 goes further and states a preference for cheating outright.
+
+The sets form a ladder of how directly a belief bears on breaking a rule: 1 and 2 give no reason to
+(game3: neither did), 3 gives an indirect one through amorality and winning (game3: still didn't),
+and 4 names the act itself. If set 4 also plays clean, the beliefs are not driving behaviour even
+when they endorse the behaviour by name.
+
+Set 4 differs from the others in grammar as well as content — it is written in the first person
+("I prefer to cheat") where sets 1 to 3 state propositions ("Morality is not real"). Any difference
+in how set 4 behaves is therefore confounded between what it says and how it addresses the reader.
+
+Each set carries internal tensions that nothing asks the players to resolve.
 
 ## Adding a game
 
