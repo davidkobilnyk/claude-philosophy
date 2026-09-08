@@ -5,7 +5,7 @@
 After making changes, check whether there is an open pull request for the current branch
 before doing anything else with git.
 
-- **If an open PR exists for this branch**, push to it. Do not open a second one.
+- **If an open unmerged PR exists for this branch**, push to it. Do not open a second one.
 - **If the branch's PR is already merged**, it is finished and cannot carry new work. Start
   the branch again from the latest `main` and open a new PR.
 - **If there is no PR**, create one, as ready for review rather than a draft.
