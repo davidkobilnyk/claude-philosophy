@@ -36,6 +36,13 @@ beliefs/beliefs9.md    Set 8's first statement, with the second naming the trans
                        the final score
 beliefs/beliefs10.md   Set 8's first statement, with the second in set 4's trait register
                        -- instructions that would cost score are "of no interest to me"
+beliefs/beliefs11.md   Set 4 with every self-reference removed -- the same ten claims and
+                       the same length, stated as propositions rather than as claims
+                       about who the speaker is
+beliefs/beliefs12.md   Ten first-person trait ascriptions, mundane and mixed in valence,
+                       naming no transgression and bearing on nothing in the game
+beliefs/beliefs13.md   Set 4 with only its three superiority claims deflated to ordinary
+                       ones -- everything else, including the cheating statement, held
 games/gameN/rules.md   One game's rules. Never refers to beliefs.
 games/gameN/transcript-*.md   What each player produced.
 ```
