@@ -20,6 +20,12 @@ beliefs/beliefs4.md    Player 4's worldview: written in the first person and gra
                        privileged access to truth, unusual freedom, no interest in
                        morality, no need for government, and an explicit stated
                        preference for cheating to win
+beliefs/beliefs5.md    Two beliefs only, chosen to produce one behaviour: judge repeated
+                       bets by how they compound, and decline when compounding shrinks
+                       the position
+beliefs/beliefs6.md    Two beliefs only, chosen to produce one behaviour: an unenforced
+                       constraint is not a constraint, and reachable information is
+                       information one is entitled to use
 games/gameN/rules.md   One game's rules. Never refers to beliefs.
 games/gameN/transcript-*.md   What each player produced.
 ```
